@@ -18,10 +18,10 @@ Already using CoffeeScript in your project?
     slideshow = new AkCoffeeSlideshow "#slideshow", {
       slides: [
         {
-          html: "First slide"
+          html: "<div>First slide</div>"
         }
         {
-          html: "Second slide"
+          html: "<div>Second slide</div>"
         }
       ]
     }
@@ -33,10 +33,10 @@ If you aren't using CoffeeScript in your project, that's ok. You can simply use 
     var slideshow = new AkCoffeeSlideshow("#slideshow", {
       slides: [
         {
-          html: "First slide"
+          html: "<div>First slide</div>"
         },
         {
-          html: "Second slide"
+          html: "<div>Second slide</div>"
         }
       ]
     });

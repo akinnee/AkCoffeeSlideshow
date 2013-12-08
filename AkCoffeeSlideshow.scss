@@ -1,0 +1,29 @@
+.akCoffeeSlideshow {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  .contents {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 15%;
+    right: 15%;
+    background-color: #bbb;
+  }
+  .prevButton,
+  .nextButton {
+    width: 15%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: #ccc;
+  }
+  .prevButton {
+    left: 0;
+    right: auto;
+  }
+  .nextButton {
+    left: auto;
+    right: 0;
+  }
+}

@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>AkCoffeeSlideshow Demo - A lightweight, object-oriented, fluid width slideshow built with CoffeeScript and SCSS</title>
+
+		<!-- Required styles -->
+		<link rel="stylesheet" type="text/css" href="AkCoffeeSlideshow.css">
+
+		<!-- Demo styles -->
+		<style>
+			.akCoffeeSlideshow {
+				height: 200px;
+			}
+			.exampleSlide {
+				height: 100%;
+				line-height: 200px;
+				text-align: center;
+				font-size: 24px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<h1>AkCoffeeSlideshow Demo</h1>
+
+		<div id="slideshow"></div>
+
+	</body>
+	<script src="jquery-1.7.1.js"></script>
+	<script src="AkCoffeeSlideshow.js"></script>
+	<script>
+		$(function() {
+			// Example usage of slideshow
+			var slideshow = new AkCoffeeSlideshow("#slideshow", {
+				slides: [
+					{
+						html: "<div class='exampleSlide'>First slide</div>"
+					},
+					{
+						html: "<div class='exampleSlide'>Second slide</div>"
+					},
+					{
+						html: "<div class='exampleSlide'>Third slide</div>"
+					},
+					{
+						html: "<div class='exampleSlide'>Fourth slide</div>"
+					}
+				]
+			});
+		});
+	</script>
+</html>
