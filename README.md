@@ -1,7 +1,7 @@
 AkCoffeeSlideshow
 =================
 
-A lightweight, object-oriented slideshow built with CoffeeScript and SCSS
+A lightweight, object-oriented, fluid width slideshow built with CoffeeScript and SCSS
 
 
 ### Dependencies
