@@ -1,0 +1,22 @@
+{
+	"framework": "jasmine",
+
+	"__comment__": "Watching these files for changes:",
+	"src_files": [
+		"./source/*.coffee",
+		"./tests/*"
+	],
+
+	"__comment__": "Before the tests run, we need to compile our CoffeeScript!",
+	"before_tests": "./tests/testbuild.sh",
+
+	"__comment__": "And for actually performing the tests, we'll be using these files:",
+	"serve_files": [
+		"./demo/jquery-1.7.1.js",
+		"./build/*.js",
+		"./tests/*.js"
+	],
+
+	"__comment__": "After our tests complete, we want to remove the test js files",
+	"after_tests": "rm ./tests/*.js"
+}

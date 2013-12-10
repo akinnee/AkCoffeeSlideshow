@@ -1,8 +1,8 @@
-class AkCoffeeSlideshow
+class window.AkCoffeeSlideshow
 	@currentSlide
 	
 	constructor: (selector = "", options = {}) ->
-		@$container = $ selector
+		@$container = $ selector # jQuery also allows this to be a jQuery object
 		@slides = options.slides
 
 		# build the html for the slideshow
@@ -29,6 +29,8 @@ class AkCoffeeSlideshow
 		
 		if @slides[slideIndex].html
 			@$content.html(@slides[slideIndex].html)
+
+		@$activeSlide = @$content
 			
 	navPrev: ->
 		if @currentSlide == 0
