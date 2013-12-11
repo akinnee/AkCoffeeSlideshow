@@ -3,7 +3,7 @@
 
 	"__comment__": "Watching these files for changes:",
 	"src_files": [
-		"./source/*.coffee",
+		"./source/*",
 		"./tests/*"
 	],
 

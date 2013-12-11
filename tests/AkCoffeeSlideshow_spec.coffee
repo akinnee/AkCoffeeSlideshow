@@ -1,7 +1,7 @@
 $ ->
 	describe "AkCoffeeSlideshow", ->
 
-		it "starts at slide 0", ->
+		it "creates elements with class of .slide for all the slides", ->
 			slideshow = new AkCoffeeSlideshow($("<div id='testSlideshow'>"), {
 				slides: [
 					{ html: "slide contents" },
@@ -9,8 +9,23 @@ $ ->
 					{ html: "slide contents" }
 				]
 			})
+			expect(slideshow.$container.find(".slide").length).toBe(3)
+
+		it "starts at slide 0", ->
+			slideshow = new AkCoffeeSlideshow($("<div id='testSlideshow'>"), {
+				slides: [
+					{ html: "first slide" },
+					{ html: "slide contents" },
+					{ html: "slide contents" }
+				]
+			})
+			# make sure the index is correct
 			currentSlide = slideshow.currentSlide
 			expect(currentSlide).toBe(0)
+
+			# make sure the active slide has the correct content
+			activeSlideContents = slideshow.$activeSlide.html()
+			expect(activeSlideContents).toBe("first slide")
 
 		it "knows the index of the last slide", ->
 			slideshow = new AkCoffeeSlideshow($("<div id='testSlideshow'>"), {
@@ -40,6 +55,11 @@ $ ->
 			# make sure the active slide has the correct content
 			activeSlideContents = slideshow.$activeSlide.html()
 			expect(activeSlideContents).toBe("target slide")
+
+			# make sure the active slide has the class of .active
+			expect(slideshow.$activeSlide.hasClass("active")).toBeTruthy()
+			# and make sure only one slide has the active class
+			expect(slideshow.$slidesContainer.find("> .slide.active").length).toBe(1)
 
 		it "can navigate backward", ->
 			slideshow = new AkCoffeeSlideshow($("<div id='testSlideshow'>"), {

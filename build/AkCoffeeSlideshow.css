@@ -2,13 +2,17 @@
   width: 100%;
   height: 100%;
   position: relative; }
-  .akCoffeeSlideshow .contents {
+  .akCoffeeSlideshow .slides {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 15%;
     right: 15%;
     background-color: #bbb; }
+    .akCoffeeSlideshow .slides .slide {
+      display: none; }
+      .akCoffeeSlideshow .slides .slide.active {
+        display: block; }
   .akCoffeeSlideshow .prevButton,
   .akCoffeeSlideshow .nextButton {
     width: 15%;

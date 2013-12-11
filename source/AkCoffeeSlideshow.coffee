@@ -7,9 +7,11 @@ class window.AkCoffeeSlideshow
 
 		# build the html for the slideshow
 		@$container.addClass("akCoffeeSlideshow")
-		@$content = $("<div class='contents'>").appendTo(@$container)
+		@$slidesContainer = $("<div class='slides'>").appendTo(@$container)
 		$prevButton = $("<div class='prevButton'>").appendTo(@$container)
 		$nextButton = $("<div class='nextButton'>").appendTo(@$container)
+		# make each slide
+		@makeSlide slide, i for slide, i in options.slides
 		
 		# bind events
 		$prevButton.click =>
@@ -19,18 +21,19 @@ class window.AkCoffeeSlideshow
 			@navNext()
 		
 		# display the first slide
-		@navTo 0;
+		@navTo 0
+
+	makeSlide: (slide, i) ->
+		if slide.html
+			@$slidesContainer.append($("<div class='slide' data-slide='#{i}'>").html(slide.html))
 		
 	lastSlide: ->
 		@slides.length - 1
 		
 	navTo: (slideIndex) ->
 		@currentSlide = slideIndex
-		
-		if @slides[slideIndex].html
-			@$content.html(@slides[slideIndex].html)
-
-		@$activeSlide = @$content
+		@$slidesContainer.find("> .slide").removeClass("active")
+		@$activeSlide = @$slidesContainer.find("> .slide[data-slide='#{slideIndex}']").addClass("active")
 			
 	navPrev: ->
 		if @currentSlide == 0

@@ -4,7 +4,7 @@
     AkCoffeeSlideshow.currentSlide;
 
     function AkCoffeeSlideshow(selector, options) {
-      var $nextButton, $prevButton,
+      var $nextButton, $prevButton, i, slide, _i, _len, _ref,
         _this = this;
       if (selector == null) {
         selector = "";
@@ -15,9 +15,14 @@
       this.$container = $(selector);
       this.slides = options.slides;
       this.$container.addClass("akCoffeeSlideshow");
-      this.$content = $("<div class='contents'>").appendTo(this.$container);
+      this.$slidesContainer = $("<div class='slides'>").appendTo(this.$container);
       $prevButton = $("<div class='prevButton'>").appendTo(this.$container);
       $nextButton = $("<div class='nextButton'>").appendTo(this.$container);
+      _ref = options.slides;
+      for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
+        slide = _ref[i];
+        this.makeSlide(slide, i);
+      }
       $prevButton.click(function() {
         return _this.navPrev();
       });
@@ -27,16 +32,20 @@
       this.navTo(0);
     }
 
+    AkCoffeeSlideshow.prototype.makeSlide = function(slide, i) {
+      if (slide.html) {
+        return this.$slidesContainer.append($("<div class='slide' data-slide='" + i + "'>").html(slide.html));
+      }
+    };
+
     AkCoffeeSlideshow.prototype.lastSlide = function() {
       return this.slides.length - 1;
     };
 
     AkCoffeeSlideshow.prototype.navTo = function(slideIndex) {
       this.currentSlide = slideIndex;
-      if (this.slides[slideIndex].html) {
-        this.$content.html(this.slides[slideIndex].html);
-      }
-      return this.$activeSlide = this.$content;
+      this.$slidesContainer.find("> .slide").removeClass("active");
+      return this.$activeSlide = this.$slidesContainer.find("> .slide[data-slide='" + slideIndex + "']").addClass("active");
     };
 
     AkCoffeeSlideshow.prototype.navPrev = function() {
