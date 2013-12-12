@@ -52,8 +52,18 @@ If you're using SASS/SCSS, great! The styles for this slideshow are written in S
 
 ##### The test suite
 
-This project uses Test'em and Jasmine. Simply run "testem" in the root of the project to run the tests. Each class should have its own spec file in the tests directory. All the tests run in a few milliseconds. Test'em runs in the background, watching for changes, and runs the tests every time a source file is changed.
+This project uses [Test'em](https://github.com/airportyh/testem) and [Jasmine](https://github.com/pivotal/jasmine). Each class should have its own spec file in the tests directory.
+
+Simply run "testem" in the root of the project to run the tests. Test'em runs in the background, watching for changes, and runs the tests every time a source file is changed. All the tests run in a few milliseconds.
 
 ##### Employing TDD
 
 This project employes test-driven development (TDD). This means I write the tests first, and then do the bare minimum to make them pass. The tests define how the program should behave before it is written. This speeds up development because it mostly eliminates the slowness of refreshing your browser to see if what you changed worked, and it mostly eliminates the uncertainty of not knowing if your changes have broken some use case.
+
+#### Styles
+
+Any style updates must be written in SCSS. Make sure all the default styles can be easily overridden.
+
+#### Scripting
+
+All the JS is written using CoffeeScript.
