@@ -11,6 +11,45 @@ $ ->
 			})
 			expect(slideshow.$container.find(".slide").length).toBe(3)
 
+		it "calls @setupSlideHorizontalAnimation if @options.animate == 'slideHorizontal'", ->
+			setupSlideHorizontalAnimationSpy = jasmine.createSpy "setupSlideHorizontalAnimation"
+
+			class TestAkCoffeeSlideshow extends AkCoffeeSlideshow
+				setupSlideHorizontalAnimation: setupSlideHorizontalAnimationSpy
+
+			slideshow = new TestAkCoffeeSlideshow($("<div id='testSlideshow'>"), {
+				slides: []
+				animate: "slideHorizontal"
+			})
+
+			expect(setupSlideHorizontalAnimationSpy).toHaveBeenCalled()
+
+		it "calls @setupSlideVerticalAnimation if @options.animate == 'slideVertical'", ->
+			setupSlideVerticalAnimationSpy = jasmine.createSpy "setupSlideVerticalAnimation"
+
+			class TestAkCoffeeSlideshow extends AkCoffeeSlideshow
+				setupSlideVerticalAnimation: setupSlideVerticalAnimationSpy
+
+			slideshow = new TestAkCoffeeSlideshow($("<div id='testSlideshow'>"), {
+				slides: []
+				animate: "slideVertical"
+			})
+
+			expect(setupSlideVerticalAnimationSpy).toHaveBeenCalled()
+
+		it "calls @setupFadeAnimation if @options.animate == 'fade'", ->
+			setupFadeAnimationSpy = jasmine.createSpy "setupFadeAnimation"
+
+			class TestAkCoffeeSlideshow extends AkCoffeeSlideshow
+				setupFadeAnimation: setupFadeAnimationSpy
+
+			slideshow = new TestAkCoffeeSlideshow($("<div id='testSlideshow'>"), {
+				slides: []
+				animate: "fade"
+			})
+
+			expect(setupFadeAnimationSpy).toHaveBeenCalled()
+
 		it "starts at slide 0", ->
 			slideshow = new AkCoffeeSlideshow($("<div id='testSlideshow'>"), {
 				slides: [

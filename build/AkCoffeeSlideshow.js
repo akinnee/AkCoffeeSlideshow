@@ -9,16 +9,14 @@
       if (selector == null) {
         selector = "";
       }
-      if (options == null) {
-        options = {};
-      }
+      this.options = options != null ? options : {};
       this.$container = $(selector);
-      this.slides = options.slides;
+      this.slides = this.options.slides;
       this.$container.addClass("akCoffeeSlideshow");
       this.$slidesContainer = $("<div class='slides'>").appendTo(this.$container);
       $prevButton = $("<div class='prevButton'>").appendTo(this.$container);
       $nextButton = $("<div class='nextButton'>").appendTo(this.$container);
-      _ref = options.slides;
+      _ref = this.options.slides;
       for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
         slide = _ref[i];
         this.makeSlide(slide, i);
@@ -30,7 +28,25 @@
         return _this.navNext();
       });
       this.navTo(0);
+      if (this.options.animate) {
+        switch (this.options.animate) {
+          case "slideHorizontal":
+            this.setupSlideHorizontalAnimation();
+            break;
+          case "slideVertical":
+            this.setupSlideVerticalAnimation();
+            break;
+          case "fade":
+            this.setupFadeAnimation();
+        }
+      }
     }
+
+    AkCoffeeSlideshow.prototype.setupSlideHorizontalAnimation = function() {};
+
+    AkCoffeeSlideshow.prototype.setupSlideVerticalAnimation = function() {};
+
+    AkCoffeeSlideshow.prototype.setupFadeAnimation = function() {};
 
     AkCoffeeSlideshow.prototype.makeSlide = function(slide, i) {
       if (slide.html) {

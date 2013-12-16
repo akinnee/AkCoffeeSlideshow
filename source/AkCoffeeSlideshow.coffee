@@ -1,9 +1,9 @@
 class window.AkCoffeeSlideshow
 	@currentSlide
 	
-	constructor: (selector = "", options = {}) ->
+	constructor: (selector = "", @options = {}) ->
 		@$container = $ selector # jQuery also allows this to be a jQuery object
-		@slides = options.slides
+		@slides = @options.slides
 
 		# build the html for the slideshow
 		@$container.addClass("akCoffeeSlideshow")
@@ -11,7 +11,7 @@ class window.AkCoffeeSlideshow
 		$prevButton = $("<div class='prevButton'>").appendTo(@$container)
 		$nextButton = $("<div class='nextButton'>").appendTo(@$container)
 		# make each slide
-		@makeSlide slide, i for slide, i in options.slides
+		@makeSlide slide, i for slide, i in @options.slides
 		
 		# bind events
 		$prevButton.click =>
@@ -22,6 +22,20 @@ class window.AkCoffeeSlideshow
 		
 		# display the first slide
 		@navTo 0
+
+
+		# handle animation setup
+		if @options.animate
+			switch @options.animate
+				when "slideHorizontal" then @setupSlideHorizontalAnimation()
+				when "slideVertical" then @setupSlideVerticalAnimation()
+				when "fade" then @setupFadeAnimation()
+
+	setupSlideHorizontalAnimation: ->
+
+	setupSlideVerticalAnimation: ->
+
+	setupFadeAnimation: ->
 
 	makeSlide: (slide, i) ->
 		if slide.html
