@@ -34,7 +34,7 @@ Let's break that down...
 
 `slides:` An array of slides (objects) to display. Pass in any sort of HTML you want. I'll be adding support for image urls shortly.
 
-`animate` What type of transition should the slideshow use? Currently supported options:
+`animate:` What type of transition should the slideshow use? Currently supported options:
 * `null` No animation
 * `fade` Fade between slides
     
