@@ -10,9 +10,12 @@
     right: 15%;
     background-color: #bbb; }
     .akCoffeeSlideshow .slides .slide {
-      display: none; }
-      .akCoffeeSlideshow .slides .slide.active {
-        display: block; }
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0; }
   .akCoffeeSlideshow .prevButton,
   .akCoffeeSlideshow .nextButton {
     width: 15%;

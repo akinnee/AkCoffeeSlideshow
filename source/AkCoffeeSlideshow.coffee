@@ -45,9 +45,26 @@ class window.AkCoffeeSlideshow
 		@slides.length - 1
 		
 	navTo: (slideIndex) ->
+		# update current slide index
 		@currentSlide = slideIndex
-		@$slidesContainer.find("> .slide").removeClass("active")
-		@$activeSlide = @$slidesContainer.find("> .slide[data-slide='#{slideIndex}']").addClass("active")
+
+		$currentSlideEl = @$slidesContainer.find("> .slide.active")
+		$nextSlideEl = @$slidesContainer.find("> .slide[data-slide='#{slideIndex}']")
+
+		if @options.animate
+			if @options.animate == "fade"
+				$currentSlideEl.fadeOut(400)
+				$nextSlideEl.fadeIn(400)
+		else
+			$currentSlideEl.hide()
+			$nextSlideEl.show()
+
+		# change which slide has active class
+		$currentSlideEl.removeClass("active")
+		$nextSlideEl.addClass("active")
+
+		# update active slide element
+		@$activeSlide = $nextSlideEl
 			
 	navPrev: ->
 		if @currentSlide == 0

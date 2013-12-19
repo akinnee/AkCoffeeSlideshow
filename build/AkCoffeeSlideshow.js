@@ -59,9 +59,22 @@
     };
 
     AkCoffeeSlideshow.prototype.navTo = function(slideIndex) {
+      var $currentSlideEl, $nextSlideEl;
       this.currentSlide = slideIndex;
-      this.$slidesContainer.find("> .slide").removeClass("active");
-      return this.$activeSlide = this.$slidesContainer.find("> .slide[data-slide='" + slideIndex + "']").addClass("active");
+      $currentSlideEl = this.$slidesContainer.find("> .slide.active");
+      $nextSlideEl = this.$slidesContainer.find("> .slide[data-slide='" + slideIndex + "']");
+      if (this.options.animate) {
+        if (this.options.animate === "fade") {
+          $currentSlideEl.fadeOut(400);
+          $nextSlideEl.fadeIn(400);
+        }
+      } else {
+        $currentSlideEl.hide();
+        $nextSlideEl.show();
+      }
+      $currentSlideEl.removeClass("active");
+      $nextSlideEl.addClass("active");
+      return this.$activeSlide = $nextSlideEl;
     };
 
     AkCoffeeSlideshow.prototype.navPrev = function() {
