@@ -13,7 +13,7 @@ jQuery (Tested with 1.7.1)
 
 ##### CoffeeScript
 
-Already using CoffeeScript in your project? Example:
+Already using CoffeeScript in your project? Example: (If not, see the JavaScript section below.)
 
     slideshow = new AkCoffeeSlideshow "#slideshow", {
       slides: [
