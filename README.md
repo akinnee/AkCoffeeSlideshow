@@ -13,7 +13,7 @@ jQuery (Tested with 1.7.1)
 
 ##### CoffeeScript
 
-Already using CoffeeScript in your project?
+Already using CoffeeScript in your project? Example:
 
     slideshow = new AkCoffeeSlideshow "#slideshow", {
       slides: [
@@ -25,6 +25,18 @@ Already using CoffeeScript in your project?
         }
       ]
     }
+    
+Let's break that down...
+
+    new AkCoffeeSlideShow <selector|element|jQuery object>, <options>
+    
+###### Options
+
+`slides:` An array of slides (objects) to display. Pass in any sort of HTML you want. I'll be adding support for image urls shortly.
+
+`animate` What type of transition should the slideshow use? Currently supported options:
+* `null` No animation
+* `fade` Fade between slides
     
 ##### JavaScript
 
