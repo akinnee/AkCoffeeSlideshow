@@ -36,7 +36,7 @@ Let's break that down...
 
 `animate:` What type of transition should the slideshow use? Currently supported options:
 * `null` No animation
-* `fade` Fade between slides
+* `"fade"` Fade between slides
     
 ##### JavaScript
 
