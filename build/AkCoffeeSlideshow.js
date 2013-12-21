@@ -40,33 +40,48 @@
             this.setupFadeAnimation();
         }
       }
+      this.setOrientation();
       this.navTo(0);
     }
+
+    AkCoffeeSlideshow.prototype.setOrientation = function() {
+      if (this.options.orientation) {
+        if (this.options.orientation === "vertical") {
+          return this.$container.addClass("option-vertical");
+        }
+      }
+    };
 
     AkCoffeeSlideshow.prototype.setupSlideHorizontalAnimation = function() {
       var arrangeSlidesHorizontally,
         _this = this;
+      this.$container.addClass("option-slideHorizontal");
       arrangeSlidesHorizontally = function() {
         _this.slideWidth = _this.$slidesContainerWrapper.width();
         _this.$slidesContainer.find("> .slide").width(_this.slideWidth);
         return _this.$slidesContainer.width(_this.slides.length * _this.slideWidth);
       };
       arrangeSlidesHorizontally();
-      $(window).on("resize", arrangeSlidesHorizontally);
-      return this.$container.addClass("option-slideHorizontal");
+      return $(window).on("resize", arrangeSlidesHorizontally);
     };
 
     AkCoffeeSlideshow.prototype.setupSlideVerticalAnimation = function() {
       var arrangeSlidesVertically,
         _this = this;
+      if (!this.options.orientation) {
+        this.options.orientation = "vertical";
+        this.setOrientation();
+      }
+      this.$container.addClass("option-slideVertical");
       arrangeSlidesVertically = function() {
         _this.slideHeight = _this.$slidesContainerWrapper.height();
+        console.log(_this.$slidesContainerWrapper);
+        console.log(_this.slideHeight);
         _this.$slidesContainer.find("> .slide").height(_this.slideHeight);
         return _this.$slidesContainer.height(_this.slides.length * _this.slideHeight);
       };
       arrangeSlidesVertically();
-      $(window).on("resize", arrangeSlidesVertically);
-      return this.$container.addClass("option-slideVertical");
+      return $(window).on("resize", arrangeSlidesVertically);
     };
 
     AkCoffeeSlideshow.prototype.setupFadeAnimation = function() {};

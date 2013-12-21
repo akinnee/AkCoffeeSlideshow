@@ -13,7 +13,7 @@ class window.AkCoffeeSlideshow
 		$nextButton = $("<div class='nextButton'>").appendTo(@$container)
 		# make each slide
 		@makeSlide slide, i for slide, i in @options.slides
-		
+
 		# bind events
 		$prevButton.click =>
 			@navPrev()
@@ -28,10 +28,20 @@ class window.AkCoffeeSlideshow
 				when "slideVertical" then @setupSlideVerticalAnimation()
 				when "fade" then @setupFadeAnimation()
 
+		# orientation options
+		@setOrientation()
+
 		# display the first slide
 		@navTo 0
 
+	setOrientation: ->
+		if @options.orientation
+			if @options.orientation == "vertical"
+				@$container.addClass("option-vertical")
+
 	setupSlideHorizontalAnimation: ->
+		@$container.addClass("option-slideHorizontal")
+
 		arrangeSlidesHorizontally = =>
 			@slideWidth = @$slidesContainerWrapper.width()
 			@$slidesContainer.find("> .slide").width(@slideWidth)
@@ -41,19 +51,23 @@ class window.AkCoffeeSlideshow
 		arrangeSlidesHorizontally()
 		$(window).on "resize", arrangeSlidesHorizontally
 
-		@$container.addClass("option-slideHorizontal")
-
 	setupSlideVerticalAnimation: ->
+		if !@options.orientation
+			@options.orientation = "vertical"
+			@setOrientation()
+
+		@$container.addClass("option-slideVertical")
+
 		arrangeSlidesVertically = =>
 			@slideHeight = @$slidesContainerWrapper.height()
+			console.log @$slidesContainerWrapper
+			console.log @slideHeight
 			@$slidesContainer.find("> .slide").height(@slideHeight)
 			@$slidesContainer.height(@slides.length * @slideHeight)
 
 		# arrange slides horizontally now and anytime the window resizes
 		arrangeSlidesVertically()
 		$(window).on "resize", arrangeSlidesVertically
-
-		@$container.addClass("option-slideVertical")
 
 	setupFadeAnimation: ->
 		# nothing to set up

@@ -60,3 +60,20 @@
   .akCoffeeSlideshow.option-slideVertical .slide {
     display: block;
     position: static; }
+  .akCoffeeSlideshow.option-vertical .slidesWrapper {
+    top: 15%;
+    bottom: 15%;
+    left: 0;
+    right: 0; }
+  .akCoffeeSlideshow.option-vertical .prevButton,
+  .akCoffeeSlideshow.option-vertical .nextButton {
+    width: auto;
+    height: 15%;
+    left: 0;
+    right: 0; }
+  .akCoffeeSlideshow.option-vertical .prevButton {
+    top: 0;
+    bottom: auto; }
+  .akCoffeeSlideshow.option-vertical .nextButton {
+    top: auto;
+    bottom: 0; }

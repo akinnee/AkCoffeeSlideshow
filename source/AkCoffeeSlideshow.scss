@@ -76,4 +76,27 @@
       position: static;
     }
   }
+  &.option-vertical {
+    .slidesWrapper {
+      top: 15%;
+      bottom: 15%;
+      left: 0;
+      right: 0;
+    }
+    .prevButton,
+    .nextButton {
+      width: auto;
+      height: 15%;
+      left: 0;
+      right: 0;
+    }
+    .prevButton {
+      top: 0;
+      bottom: auto;
+    }
+    .nextButton {
+      top: auto;
+      bottom: 0;
+    }
+  }
 }
