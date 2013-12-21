@@ -32,11 +32,15 @@ Let's break that down...
     
 ###### Options
 
-`slides:` An array of slides (objects) to display. Pass in any sort of HTML you want. I'll be adding support for image urls shortly.
+`slides:` An array of slides (objects) to display.
+* Inside each object, you can pass either an `html`, containing HTML to display inside the slide, or an `image` key, containing a URL to an image.
+* If you pass the `image` key, it is recommended you also pass `imageWidth` and `imageHeight`, but not required.
 
 `animate:` What type of transition should the slideshow use? Currently supported options:
 * `null` No animation
 * `"fade"` Fade between slides
+* `"slideHorizontal"` Horizontally slide between slides
+* `"slideVertical"` Vertically slide between slides
     
 ##### JavaScript
 
