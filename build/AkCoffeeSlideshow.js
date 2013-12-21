@@ -13,7 +13,8 @@
       this.$container = $(selector);
       this.slides = this.options.slides;
       this.$container.addClass("akCoffeeSlideshow");
-      this.$slidesContainer = $("<div class='slides'>").appendTo(this.$container);
+      this.$slidesContainerWrapper = $("<div class='slidesWrapper'>").appendTo(this.$container);
+      this.$slidesContainer = $("<div class='slides'>").appendTo(this.$slidesContainerWrapper);
       $prevButton = $("<div class='prevButton'>").appendTo(this.$container);
       $nextButton = $("<div class='nextButton'>").appendTo(this.$container);
       _ref = this.options.slides;
@@ -27,7 +28,6 @@
       $nextButton.click(function() {
         return _this.navNext();
       });
-      this.navTo(0);
       if (this.options.animate) {
         switch (this.options.animate) {
           case "slideHorizontal":
@@ -40,9 +40,21 @@
             this.setupFadeAnimation();
         }
       }
+      this.navTo(0);
     }
 
-    AkCoffeeSlideshow.prototype.setupSlideHorizontalAnimation = function() {};
+    AkCoffeeSlideshow.prototype.setupSlideHorizontalAnimation = function() {
+      var arrangeSlidesHorizontally,
+        _this = this;
+      arrangeSlidesHorizontally = function() {
+        _this.slideWidth = _this.$slidesContainerWrapper.width();
+        _this.$slidesContainer.find("> .slide").width(_this.slideWidth);
+        return _this.$slidesContainer.width(_this.slides.length * _this.slideWidth);
+      };
+      arrangeSlidesHorizontally();
+      $(window).on("resize", arrangeSlidesHorizontally);
+      return this.$container.addClass("option-slideHorizontal");
+    };
 
     AkCoffeeSlideshow.prototype.setupSlideVerticalAnimation = function() {};
 
@@ -67,6 +79,10 @@
         if (this.options.animate === "fade") {
           $currentSlideEl.fadeOut(400);
           $nextSlideEl.fadeIn(400);
+        } else if (this.options.animate === "slideHorizontal") {
+          this.$slidesContainer.animate({
+            "margin-left": this.slideWidth * -1 * slideIndex
+          }, 400);
         }
       } else {
         $currentSlideEl.hide();

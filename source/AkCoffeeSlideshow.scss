@@ -2,21 +2,30 @@
   width: 100%;
   height: 100%;
   position: relative;
-  .slides {
+  .slidesWrapper {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 15%;
     right: 15%;
     background-color: #bbb;
-    .slide {
-      display: none;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
+    overflow: hidden;
+  }
+  .slides {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+  .slide {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
   }
   .prevButton,
   .nextButton {
@@ -25,6 +34,13 @@
     top: 0;
     bottom: 0;
     background-color: #ccc;
+    // don't select text when clicking slideshow buttons
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
   .prevButton {
     left: 0;
@@ -33,5 +49,12 @@
   .nextButton {
     left: auto;
     right: 0;
+  }
+
+  &.option-slideHorizontal {
+    .slide {
+      display: inline-block;
+      position: static;
+    }
   }
 }
