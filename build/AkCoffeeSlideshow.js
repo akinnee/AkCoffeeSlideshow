@@ -72,6 +72,15 @@
     AkCoffeeSlideshow.prototype.setupFadeAnimation = function() {};
 
     AkCoffeeSlideshow.prototype.makeSlide = function(slide, i) {
+      if (slide.image) {
+        slide.html = $("<img src='" + slide.image + "'>");
+        if (slide.imageWidth) {
+          slide.html.attr("width", slide.imageWidth);
+        }
+        if (slide.imageHeight) {
+          slide.html.attr("height", slide.imageHeight);
+        }
+      }
       if (slide.html) {
         return this.$slidesContainer.append($("<div class='slide' data-slide='" + i + "'>").html(slide.html));
       }

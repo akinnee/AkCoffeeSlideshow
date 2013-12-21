@@ -26,6 +26,12 @@
     right: 0;
     bottom: 0;
     left: 0;
+    img {
+      max-height: 100%;
+      width: auto;
+      display: block;
+      margin: auto;
+    }
   }
   .prevButton,
   .nextButton {
