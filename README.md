@@ -37,10 +37,14 @@ Let's break that down...
 * If you pass the `image` key, it is recommended you also pass `imageWidth` and `imageHeight`, but not required.
 
 `animate:` What type of transition should the slideshow use? Currently supported options:
-* `null` No animation
-* `"fade"` Fade between slides
-* `"slideHorizontal"` Horizontally slide between slides
-* `"slideVertical"` Vertically slide between slides
+* `null` No animation.
+* `"fade"` Fade between slides.
+* `"slideHorizontal"` Horizontally slide between slides.
+* `"slideVertical"` Vertically slide between slides. If the `orientation` option is not set, this will set it to `"vertical"`.
+
+`orientation:`
+* `null` or `"horizontal"` The default mode. Next and previous buttons will appear to the right and left of the slides.
+* `"vertical"` Next and previous buttons will appear to the bottom and top of the slides.
     
 ##### JavaScript
 
