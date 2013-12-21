@@ -56,7 +56,18 @@
       return this.$container.addClass("option-slideHorizontal");
     };
 
-    AkCoffeeSlideshow.prototype.setupSlideVerticalAnimation = function() {};
+    AkCoffeeSlideshow.prototype.setupSlideVerticalAnimation = function() {
+      var arrangeSlidesVertically,
+        _this = this;
+      arrangeSlidesVertically = function() {
+        _this.slideHeight = _this.$slidesContainerWrapper.height();
+        _this.$slidesContainer.find("> .slide").height(_this.slideHeight);
+        return _this.$slidesContainer.height(_this.slides.length * _this.slideHeight);
+      };
+      arrangeSlidesVertically();
+      $(window).on("resize", arrangeSlidesVertically);
+      return this.$container.addClass("option-slideVertical");
+    };
 
     AkCoffeeSlideshow.prototype.setupFadeAnimation = function() {};
 
@@ -82,6 +93,10 @@
         } else if (this.options.animate === "slideHorizontal") {
           this.$slidesContainer.animate({
             "margin-left": this.slideWidth * -1 * slideIndex
+          }, 400);
+        } else if (this.options.animate === "slideVertical") {
+          this.$slidesContainer.animate({
+            "margin-top": this.slideHeight * -1 * slideIndex
           }, 400);
         }
       } else {

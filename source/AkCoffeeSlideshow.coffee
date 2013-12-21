@@ -44,6 +44,16 @@ class window.AkCoffeeSlideshow
 		@$container.addClass("option-slideHorizontal")
 
 	setupSlideVerticalAnimation: ->
+		arrangeSlidesVertically = =>
+			@slideHeight = @$slidesContainerWrapper.height()
+			@$slidesContainer.find("> .slide").height(@slideHeight)
+			@$slidesContainer.height(@slides.length * @slideHeight)
+
+		# arrange slides horizontally now and anytime the window resizes
+		arrangeSlidesVertically()
+		$(window).on "resize", arrangeSlidesVertically
+
+		@$container.addClass("option-slideVertical")
 
 	setupFadeAnimation: ->
 		# nothing to set up
@@ -69,6 +79,10 @@ class window.AkCoffeeSlideshow
 			else if @options.animate == "slideHorizontal"
 				@$slidesContainer.animate({
 					"margin-left": @slideWidth * -1 * slideIndex
+				}, 400)
+			else if @options.animate == "slideVertical"
+				@$slidesContainer.animate({
+					"margin-top": @slideHeight * -1 * slideIndex
 				}, 400)
 		else
 			$currentSlideEl.hide()

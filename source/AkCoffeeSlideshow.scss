@@ -57,4 +57,17 @@
       position: static;
     }
   }
+  &.option-slideVertical {
+    .slides {
+      top: 0;
+      bottom: auto;
+      left: 0;
+      right: 0;
+      height: 100%;
+    }
+    .slide {
+      display: block;
+      position: static;
+    }
+  }
 }

@@ -46,3 +46,12 @@
   .akCoffeeSlideshow.option-slideHorizontal .slide {
     display: inline-block;
     position: static; }
+  .akCoffeeSlideshow.option-slideVertical .slides {
+    top: 0;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    height: 100%; }
+  .akCoffeeSlideshow.option-slideVertical .slide {
+    display: block;
+    position: static; }
