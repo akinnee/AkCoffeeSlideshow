@@ -1,2 +1,3 @@
 next-icon.png - Designed by Lucas Olaerts - http://thenounproject.com/term/next/26914/
 back-icon.png - Designed by Lucas Olaerts - http://thenounproject.com/term/back/26915/
+up-icon.png and down-icon.png - based on next-icon.png

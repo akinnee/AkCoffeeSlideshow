@@ -86,25 +86,28 @@
   }
   &.option-vertical {
     .slidesWrapper {
-      top: 15%;
-      bottom: 15%;
+      top: 20%;
+      bottom: 20%;
       left: 0;
       right: 0;
     }
     .prevButton,
     .nextButton {
       width: auto;
-      height: 15%;
+      height: 20%;
       left: 0;
       right: 0;
+      background-size: 15%;
     }
     .prevButton {
       top: 0;
       bottom: auto;
+      background-image: url(assets/up-icon.png);
     }
     .nextButton {
       top: auto;
       bottom: 0;
+      background-image: url(assets/down-icon.png);
     }
   }
 }

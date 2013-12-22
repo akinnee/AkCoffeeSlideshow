@@ -67,19 +67,22 @@
     display: block;
     position: static; }
   .akCoffeeSlideshow.option-vertical .slidesWrapper {
-    top: 15%;
-    bottom: 15%;
+    top: 20%;
+    bottom: 20%;
     left: 0;
     right: 0; }
   .akCoffeeSlideshow.option-vertical .prevButton,
   .akCoffeeSlideshow.option-vertical .nextButton {
     width: auto;
-    height: 15%;
+    height: 20%;
     left: 0;
-    right: 0; }
+    right: 0;
+    background-size: 15%; }
   .akCoffeeSlideshow.option-vertical .prevButton {
     top: 0;
-    bottom: auto; }
+    bottom: auto;
+    background-image: url(assets/up-icon.png); }
   .akCoffeeSlideshow.option-vertical .nextButton {
     top: auto;
-    bottom: 0; }
+    bottom: 0;
+    background-image: url(assets/down-icon.png); }
