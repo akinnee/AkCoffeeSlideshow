@@ -8,14 +8,19 @@
 		<!-- Demo styles -->
 		<style>
 			.akCoffeeSlideshow {
+				height: 200px;
+			}
+			.akCoffeeSlideshow.option-slideVertical {
 				width: 400px;
 				height: 500px;
 			}
-			.exampleSlide {
-				height: 100%;
+			.akCoffeeSlideshow .exampleSlide {
 				line-height: 200px;
 				text-align: center;
 				font-size: 24px;
+			}
+			.akCoffeeSlideshow.option-slideVertical .exampleSlide {
+				line-height: 300px;
 			}
 		</style>
 	</head>
@@ -23,15 +28,61 @@
 
 		<h1>AkCoffeeSlideshow Demo</h1>
 
-		<div id="slideshow"></div>
+		<h4>animate: "fade" - all images</h4>
+		<div id="fadeSlideshow"></div>
+
+		<h4>animate: "slideHorizontal" - all html</h4>
+		<div id="horizontalSlideshow"></div>
+
+		<h4>animate: "slideVertical" - mix of html and images</h4>
+		<div id="verticalSlideshow"></div>
 
 	</body>
 	<script src="jquery-1.7.1.js"></script>
 	<script src="../build/AkCoffeeSlideshow.js"></script>
 	<script>
 		$(function() {
-			// Example usage of slideshow
-			var slideshow = new AkCoffeeSlideshow("#slideshow", {
+
+			// animate: "fade"
+			var verticalSlideshow = new AkCoffeeSlideshow("#fadeSlideshow", {
+				animate: "fade",
+				slides: [
+					{
+						image: "http://placekitten.com/g/434/200"
+					},
+					{
+						image: "http://placekitten.com/g/300/200"
+					},
+					{
+						image: "http://placekitten.com/g/500/200"
+					},
+					{
+						image: "http://placekitten.com/g/360/200"
+					},
+				]
+			});
+
+			// animate: "slideHorizontal"
+			var verticalSlideshow = new AkCoffeeSlideshow("#horizontalSlideshow", {
+				animate: "slideHorizontal",
+				slides: [
+					{
+						html: "<div class='exampleSlide'>First slide</div>"
+					},
+					{
+						html: "<div class='exampleSlide'>Second slide</div>"
+					},
+					{
+						html: "<div class='exampleSlide'>Third slide</div>"
+					},
+					{
+						html: "<div class='exampleSlide'>Fourth slide</div>"
+					}
+				]
+			});
+
+			// animate: "slideVertical"
+			var verticalSlideshow = new AkCoffeeSlideshow("#verticalSlideshow", {
 				animate: "slideVertical",
 				slides: [
 					{
@@ -52,6 +103,7 @@
 					}
 				]
 			});
+
 		});
 	</script>
 </html>
