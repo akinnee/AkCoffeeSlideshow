@@ -28,7 +28,7 @@
 
 		<h1>AkCoffeeSlideshow Demo</h1>
 
-		<h4>animate: "fade" - all images</h4>
+		<h4>animate: "fade" - autoplay: 5000 - all images</h4>
 		<div id="fadeSlideshow"></div>
 
 		<h4>animate: "slideHorizontal" - all html</h4>
@@ -46,6 +46,7 @@
 			// animate: "fade"
 			var verticalSlideshow = new AkCoffeeSlideshow("#fadeSlideshow", {
 				animate: "fade",
+				autoplay: 5000,
 				slides: [
 					{
 						image: "http://placekitten.com/g/434/200"

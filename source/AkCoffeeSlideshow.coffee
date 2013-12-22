@@ -4,6 +4,7 @@ class window.AkCoffeeSlideshow
 	constructor: (selector = "", @options = {}) ->
 		@$container = $ selector # jQuery also allows this to be a jQuery object
 		@slides = @options.slides
+		@autoplay = @options.autoplay
 
 		# build the html for the slideshow
 		@$container.addClass("akCoffeeSlideshow")
@@ -16,9 +17,11 @@ class window.AkCoffeeSlideshow
 
 		# bind events
 		$prevButton.click =>
+			@autoplay = false # stop autoplay when user manually navigates
 			@navPrev()
 			
 		$nextButton.click =>
+			@autoplay = false
 			@navNext()
 		
 		# handle animation setup
@@ -33,6 +36,8 @@ class window.AkCoffeeSlideshow
 
 		# display the first slide
 		@navTo 0
+
+		@autoplayer()
 
 	setOrientation: ->
 		if @options.orientation
@@ -60,8 +65,6 @@ class window.AkCoffeeSlideshow
 
 		arrangeSlidesVertically = =>
 			@slideHeight = @$slidesContainerWrapper.height()
-			console.log @$slidesContainerWrapper
-			console.log @slideHeight
 			@$slidesContainer.find("> .slide").height(@slideHeight)
 			@$slidesContainer.height(@slides.length * @slideHeight)
 
@@ -127,3 +130,10 @@ class window.AkCoffeeSlideshow
 			@navTo 0
 		else
 			@navTo @currentSlide + 1
+
+	autoplayer: ->
+		setTimeout =>
+			if @autoplay
+				@navNext()
+				@autoplayer()
+		, @autoplay

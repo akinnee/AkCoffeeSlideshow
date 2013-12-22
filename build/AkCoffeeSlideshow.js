@@ -12,6 +12,7 @@
       this.options = options != null ? options : {};
       this.$container = $(selector);
       this.slides = this.options.slides;
+      this.autoplay = this.options.autoplay;
       this.$container.addClass("akCoffeeSlideshow");
       this.$slidesContainerWrapper = $("<div class='slidesWrapper'>").appendTo(this.$container);
       this.$slidesContainer = $("<div class='slides'>").appendTo(this.$slidesContainerWrapper);
@@ -23,9 +24,11 @@
         this.makeSlide(slide, i);
       }
       $prevButton.click(function() {
+        _this.autoplay = false;
         return _this.navPrev();
       });
       $nextButton.click(function() {
+        _this.autoplay = false;
         return _this.navNext();
       });
       if (this.options.animate) {
@@ -42,6 +45,7 @@
       }
       this.setOrientation();
       this.navTo(0);
+      this.autoplayer();
     }
 
     AkCoffeeSlideshow.prototype.setOrientation = function() {
@@ -75,8 +79,6 @@
       this.$container.addClass("option-slideVertical");
       arrangeSlidesVertically = function() {
         _this.slideHeight = _this.$slidesContainerWrapper.height();
-        console.log(_this.$slidesContainerWrapper);
-        console.log(_this.slideHeight);
         _this.$slidesContainer.find("> .slide").height(_this.slideHeight);
         return _this.$slidesContainer.height(_this.slides.length * _this.slideHeight);
       };
@@ -146,6 +148,16 @@
       } else {
         return this.navTo(this.currentSlide + 1);
       }
+    };
+
+    AkCoffeeSlideshow.prototype.autoplayer = function() {
+      var _this = this;
+      return setTimeout(function() {
+        if (_this.autoplay) {
+          _this.navNext();
+          return _this.autoplayer();
+        }
+      }, this.autoplay);
     };
 
     return AkCoffeeSlideshow;
