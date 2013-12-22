@@ -39,7 +39,7 @@
     background-color: #ccc;
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: 50%;
+    background-size: 50px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -76,8 +76,7 @@
     width: auto;
     height: 20%;
     left: 0;
-    right: 0;
-    background-size: 15%; }
+    right: 0; }
   .akCoffeeSlideshow.option-vertical .prevButton {
     top: 0;
     bottom: auto;
