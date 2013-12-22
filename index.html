@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Akcoffeeslideshow : A lightweight, object-oriented, fluid width slideshow built with CoffeeScript and SCSS - Tested with Test'em &amp; Jasmine" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Akcoffeeslideshow</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/akinnee/AkCoffeeSlideshow">View on GitHub</a>
+
+          <h1 id="project_title">Akcoffeeslideshow</h1>
+          <h2 id="project_tagline">A lightweight, object-oriented, fluid width slideshow built with CoffeeScript and SCSS - Tested with Test'em &amp; Jasmine</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/akinnee/AkCoffeeSlideshow/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/akinnee/AkCoffeeSlideshow/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="akcoffeeslideshow" class="anchor" href="#akcoffeeslideshow"><span class="octicon octicon-link"></span></a>AkCoffeeSlideshow</h1>
+
+<p>A lightweight, object-oriented, fluid width slideshow built with CoffeeScript and SCSS</p>
+
+<h3>
+<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h3>
+
+<p>jQuery (Tested with 1.7.1)</p>
+
+<h3>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h3>
+
+<p>This example uses JavaScript syntax because more people are familiar with it. Obviously, if you're using CoffeeScript, you can use CoffeeScript syntax.</p>
+
+<pre><code>var slideshow = new AkCoffeeSlideshow("#slideshow", {
+  slides: [
+    {
+      html: "&lt;div&gt;First slide&lt;/div&gt;"
+    },
+    {
+      image: "http://placekitten.com/400/300",
+      imageWidth: 400,
+      imageHeight: 300
+    }
+  ],
+  animate: "slideHorizontal"
+});
+</code></pre>
+
+<p>Let's break that down...</p>
+
+<pre><code>var slideshow = new AkCoffeeSlideShow(&lt;selector|DOM element|jQuery object&gt;, &lt;options&gt;);
+</code></pre>
+
+<p>The <strong>first</strong> paramater accepts a selector (anything jQuery accepts), a DOM element, or a jQuery object. The <strong>second</strong> parameter is an object with additional options.</p>
+
+<h6>
+<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h6>
+
+<p><code>slides:</code> An array of slides (objects) to display.</p>
+
+<ul>
+<li>Inside each object, you can pass either an <code>html</code>, containing HTML to display inside the slide, or an <code>image</code> key, containing a URL to an image.</li>
+<li>If you pass the <code>image</code> key, it is recommended you also pass <code>imageWidth</code> and <code>imageHeight</code>, but not required.</li>
+</ul><p><code>animate:</code> What type of transition should the slideshow use? Currently supported options:</p>
+
+<ul>
+<li>
+<code>null</code> No animation.</li>
+<li>
+<code>"fade"</code> Fade between slides.</li>
+<li>
+<code>"slideHorizontal"</code> Horizontally slide between slides.</li>
+<li>
+<code>"slideVertical"</code> Vertically slide between slides. If the <code>orientation</code> option is not set, this will set it to <code>"vertical"</code>.</li>
+</ul><p><code>autoplay:</code> Automatically advance to the next slide every x milliseconds. Turns off after the user manually navigates.</p>
+
+<ul>
+<li>
+<code>null</code> The default. Slideshow will not automatically advance.</li>
+<li>
+<code>5000</code> Slideshow will auto advance every 5000ms. Accepts any integer.</li>
+</ul><p><code>orientation:</code></p>
+
+<ul>
+<li>
+<code>null</code> or <code>"horizontal"</code> The default mode. Next and previous buttons will appear to the right and left of the slides.</li>
+<li>
+<code>"vertical"</code> Next and previous buttons will appear to the bottom and top of the slides.</li>
+</ul><h5>
+<a name="stylesheet" class="anchor" href="#stylesheet"><span class="octicon octicon-link"></span></a>Stylesheet</h5>
+
+<p>If you're using SASS/SCSS, great! The styles for this slideshow are written in SCSS. If you aren't using SASS/SCSS, you can just use the generated CSS.</p>
+
+<h3>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h3>
+
+<h4>
+<a name="testing" class="anchor" href="#testing"><span class="octicon octicon-link"></span></a>Testing</h4>
+
+<h5>
+<a name="the-test-suite" class="anchor" href="#the-test-suite"><span class="octicon octicon-link"></span></a>The test suite</h5>
+
+<p>This project uses <a href="https://github.com/airportyh/testem">Test'em</a> and <a href="https://github.com/pivotal/jasmine">Jasmine</a>. Each class should have its own spec file in the tests directory.</p>
+
+<p>Simply run "testem" in the root of the project to run the tests. Test'em runs in the background, watching for changes, and runs the tests every time a source file is changed. All the tests run in a few milliseconds.</p>
+
+<h5>
+<a name="test-driven-development" class="anchor" href="#test-driven-development"><span class="octicon octicon-link"></span></a>Test Driven Development</h5>
+
+<p>This project uses test-driven development (TDD). This means I write the tests first, and then do the bare minimum to make them pass. The tests define how the program should behave before it is written. This speeds up development because it mostly eliminates the slowness of refreshing your browser to see if what you changed worked, and it mostly eliminates the uncertainty of not knowing if your changes have broken some use case.</p>
+
+<h4>
+<a name="styles" class="anchor" href="#styles"><span class="octicon octicon-link"></span></a>Styles</h4>
+
+<p>Any style updates must be written in SCSS. Make sure all the default styles can be easily overridden.</p>
+
+<h4>
+<a name="scripting" class="anchor" href="#scripting"><span class="octicon octicon-link"></span></a>Scripting</h4>
+
+<p>All the JS is written using CoffeeScript.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Akcoffeeslideshow maintained by <a href="https://github.com/akinnee">akinnee</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-46636651-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
