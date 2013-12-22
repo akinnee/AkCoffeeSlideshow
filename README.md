@@ -31,6 +31,8 @@ Let's break that down...
 
     var slideshow = new AkCoffeeSlideShow(<selector|DOM element|jQuery object>, <options>);
     
+The **first** paramater accepts a selector (anything jQuery accepts), a DOM element, or a jQuery object. The **second** parameter is an object with additional options.
+    
     
 ###### Options
 
