@@ -45,6 +45,10 @@ The **first** paramater accepts a selector (anything jQuery accepts), a DOM elem
 * `"fade"` Fade between slides.
 * `"slideHorizontal"` Horizontally slide between slides.
 * `"slideVertical"` Vertically slide between slides. If the `orientation` option is not set, this will set it to `"vertical"`.
+* 
+`autoplay:` Automatically advance to the next slide every x milliseconds. Turns off after the user manually navigates.
+* `null` The default. Slideshow will not automatically advance.
+* `5000` Slideshow will auto advance every 5000ms. Accepts any integer.
 
 `orientation:`
 * `null` or `"horizontal"` The default mode. Next and previous buttons will appear to the right and left of the slides.
