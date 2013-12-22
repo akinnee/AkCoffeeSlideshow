@@ -23,7 +23,8 @@
     top: 0;
     right: 0;
     bottom: 0;
-    left: 0; }
+    left: 0;
+    vertical-align: top; }
     .akCoffeeSlideshow .slide img {
       max-height: 100%;
       width: auto;
@@ -36,6 +37,9 @@
     top: 0;
     bottom: 0;
     background-color: #ccc;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 50%;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -44,10 +48,12 @@
     user-select: none; }
   .akCoffeeSlideshow .prevButton {
     left: 0;
-    right: auto; }
+    right: auto;
+    background-image: url(assets/back-icon.png); }
   .akCoffeeSlideshow .nextButton {
     left: auto;
-    right: 0; }
+    right: 0;
+    background-image: url(assets/next-icon.png); }
   .akCoffeeSlideshow.option-slideHorizontal .slide {
     display: inline-block;
     position: static; }

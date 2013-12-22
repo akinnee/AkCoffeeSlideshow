@@ -37,10 +37,15 @@
   .prevButton,
   .nextButton {
     width: 15%;
+    // positioning
     position: absolute;
     top: 0;
     bottom: 0;
+    // background
     background-color: #ccc;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 50%;
     // don't select text when clicking slideshow buttons
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -52,10 +57,12 @@
   .prevButton {
     left: 0;
     right: auto;
+    background-image: url(assets/back-icon.png);
   }
   .nextButton {
     left: auto;
     right: 0;
+    background-image: url(assets/next-icon.png);
   }
 
   &.option-slideHorizontal {
