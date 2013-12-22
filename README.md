@@ -48,7 +48,7 @@ The **first** paramater accepts a selector (anything jQuery accepts), a DOM elem
 * 
 `autoplay:` Automatically advance to the next slide every x milliseconds. Turns off after the user manually navigates.
 * `null` The default. Slideshow will not automatically advance.
-* `5000` Slideshow will auto advance every 5000ms. Accepts any integer. 
+* `5000` Slideshow will auto advance every 5000ms. Accepts any integer.
 
 `orientation:`
 * `null` or `"horizontal"` The default mode. Next and previous buttons will appear to the right and left of the slides.
