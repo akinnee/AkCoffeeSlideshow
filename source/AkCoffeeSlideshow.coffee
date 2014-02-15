@@ -23,6 +23,15 @@ class window.AkCoffeeSlideshow
 		$nextButton.click =>
 			@autoplay = false
 			@navNext()
+
+		# keynav?
+		if (@options.keynav)
+			prevKey = 37
+			nextKey = 39
+			$(window).on "keydown", (event) =>
+				switch event.keyCode
+					when nextKey then @navNext()
+					when prevKey then @navPrev()
 		
 		# handle animation setup
 		if @options.animate

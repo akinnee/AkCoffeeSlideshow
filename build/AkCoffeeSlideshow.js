@@ -4,7 +4,7 @@
     AkCoffeeSlideshow.currentSlide;
 
     function AkCoffeeSlideshow(selector, options) {
-      var $nextButton, $prevButton, i, slide, _i, _len, _ref,
+      var $nextButton, $prevButton, i, nextKey, prevKey, slide, _i, _len, _ref,
         _this = this;
       if (selector == null) {
         selector = "";
@@ -31,6 +31,18 @@
         _this.autoplay = false;
         return _this.navNext();
       });
+      if (this.options.keynav) {
+        prevKey = 37;
+        nextKey = 39;
+        $(window).on("keydown", function(event) {
+          switch (event.keyCode) {
+            case nextKey:
+              return _this.navNext();
+            case prevKey:
+              return _this.navPrev();
+          }
+        });
+      }
       if (this.options.animate) {
         switch (this.options.animate) {
           case "slideHorizontal":
