@@ -122,7 +122,7 @@
     AkCoffeeSlideshow.prototype.navTo = function(slideIndex) {
       var $currentSlideEl, $nextSlideEl;
       this.currentSlide = slideIndex;
-      $(this).trigger("change:slideIndex", slideIndex);
+      $(this).trigger("change:currentSlide", slideIndex);
       $currentSlideEl = this.$slidesContainer.find("> .slide.active");
       $nextSlideEl = this.$slidesContainer.find("> .slide[data-slide='" + slideIndex + "']");
       if (this.options.animate) {

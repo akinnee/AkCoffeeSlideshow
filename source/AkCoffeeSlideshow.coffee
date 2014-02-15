@@ -101,7 +101,7 @@ class window.AkCoffeeSlideshow
 	navTo: (slideIndex) ->
 		# update current slide index
 		@currentSlide = slideIndex
-		$(@).trigger("change:slideIndex", slideIndex)
+		$(@).trigger("change:currentSlide", slideIndex)
 
 		$currentSlideEl = @$slidesContainer.find("> .slide.active")
 		$nextSlideEl = @$slidesContainer.find("> .slide[data-slide='#{slideIndex}']")
