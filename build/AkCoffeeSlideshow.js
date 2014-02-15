@@ -152,13 +152,15 @@
     };
 
     AkCoffeeSlideshow.prototype.autoplayer = function() {
-      var _this = this;
-      return setTimeout(function() {
+      var autoplay,
+        _this = this;
+      autoplay = function() {
         if (_this.autoplay) {
           _this.navNext();
           return _this.autoplayer();
         }
-      }, this.autoplay);
+      };
+      return setTimeout(autoplay, this.autoplay);
     };
 
     return AkCoffeeSlideshow;

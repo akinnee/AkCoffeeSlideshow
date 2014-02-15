@@ -54,7 +54,7 @@ class window.AkCoffeeSlideshow
 
 		# arrange slides horizontally now and anytime the window resizes
 		arrangeSlidesHorizontally()
-		$(window).on "resize", arrangeSlidesHorizontally
+		$(window).on("resize", arrangeSlidesHorizontally)
 
 	setupSlideVerticalAnimation: ->
 		if !@options.orientation
@@ -70,7 +70,7 @@ class window.AkCoffeeSlideshow
 
 		# arrange slides horizontally now and anytime the window resizes
 		arrangeSlidesVertically()
-		$(window).on "resize", arrangeSlidesVertically
+		$(window).on("resize", arrangeSlidesVertically)
 
 	setupFadeAnimation: ->
 		# nothing to set up
@@ -128,13 +128,13 @@ class window.AkCoffeeSlideshow
 		
 	navNext: ->
 		if @currentSlide == @lastSlide()
-			@navTo 0
+			@navTo(0)
 		else
-			@navTo @currentSlide + 1
+			@navTo(@currentSlide + 1)
 
 	autoplayer: ->
-		setTimeout =>
+		autoplay = =>
 			if @autoplay
 				@navNext()
 				@autoplayer()
-		, @autoplay
+		setTimeout(autoplay, @autoplay)
