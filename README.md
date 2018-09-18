@@ -3,7 +3,7 @@ AkCoffeeSlideshow
 
 A lightweight, object-oriented, fluid width slideshow built with CoffeeScript and SCSS
 
-Check out the [GitHub Page](http://akinnee.github.io/AkCoffeeSlideshow)
+Check out the [Demo](https://akinnee.github.io/AkCoffeeSlideshow/demo/)
 
 
 ### Dependencies
